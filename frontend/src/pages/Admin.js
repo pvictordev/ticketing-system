@@ -1,9 +1,9 @@
-import React from 'react';
-import {IoCheckmarkDoneCircle} from 'react-icons/io5';
-import {AiFillCloseCircle} from 'react-icons/ai';
+import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 
 const Admin = () => {
+    const [Name, setName] = useState('');
+    const [password, setPassword] = useState('');
     return (
         <>
         <div className='user'>
@@ -14,7 +14,7 @@ const Admin = () => {
             <form>
               <div className="user-box">
                 <input type="text" name="" required=""/>
-                <label>Full name</label>
+                <label>Name</label>
               </div>
               <div className="user-box">
                 <input type="password" name="" required=""/>
