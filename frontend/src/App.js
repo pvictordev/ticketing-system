@@ -1,5 +1,7 @@
 import './App.css';
 import React,{useState, useEffect} from 'react';
+import {IoCheckmarkDoneCircle} from 'react-icons/io5';
+import {AiFillCloseCircle} from 'react-icons/ai';
 
 function App() {
   const [data, setData] = useState(null);
@@ -15,24 +17,30 @@ function App() {
         {/* <p>
           {data ? data : "Loading..."}
         </p> */}
-        <div class="login-box">
+        <div className="login-box">
           <h2>Type your ticket</h2>
             <form>
-              <div class="user-box">
+              <div className="user-box">
                 <input type="text" name="" required=""/>
                 <label>Full name</label>
               </div>
-              <div class="user-box">
-                <input type="password" name="" required=""/>
+              <div className="user-box">
+                <input type="text" name="" required=""/>
                 <label>Message</label>
               </div>
-              <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                send
-              </a>
+              <div className='result-box'>
+                <a href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  send
+                </a>
+                <div className='check-icons'>
+                  <IoCheckmarkDoneCircle className='check-icon_accepted'/>
+                  {/* <AiFillCloseCircle className='check-icon_rejected'/> */}
+                </div>
+              </div>
             </form>
         </div>
     </div>
