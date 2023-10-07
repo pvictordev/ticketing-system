@@ -1,23 +1,16 @@
+const express = require('express');
 
-const express = require('express')
+const PORT = process.env.PORT || 3001;
 
-const PORT = process.env.PORT || 3001
-
-const app = express()
+const app = express();
 
 app.listen(PORT, () => {
-    console.log(`Server starting on port ${PORT}`)
-})
-
+    console.log(`Server listening on ${PORT}`)
+});
 
 app.get('/api', (req, res) => {
-    try{
-        res.json({
-            message: "Hello from backend server",
-        })
-    } catch (error) {
-        console.log(err)
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-})
-console.log(app)
+    res.json({
+        message: 'Hello from server!' 
+    });
+});
+
