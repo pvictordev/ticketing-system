@@ -12,7 +12,7 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
+    width: 35%;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,.5);
@@ -195,3 +195,42 @@ html {
     color: #fff;
     border-radius: 50%;
   }
+
+  .user-link {
+    color: #03e9f4;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #03e9f4;
+  }
+  .user {
+    text-align: right;
+  }
+  button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    background: transparent;
+    border: 2px solid #03e9f4;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background: #03e9f4;
+    color: #fff;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+  
