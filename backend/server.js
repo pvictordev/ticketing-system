@@ -21,18 +21,26 @@ app.use(cors({
 
 app.get('/api', (req, res) => {
     //const { fullName, message } = req.body;
-    res.json({
-        message: 'Hello world from backend',
-    });
+    // res.json({
+    //     message: 'Hello world from backend',   
+    // })
+    res.json(savedData);
 });
+const savedData = {
+    fullName: '',
+    message: '',
+  };
 
 app.post('/api', (req, res) => {
     console.log('Received POST request with data:', req.body);
     const { fullName, message } = req.body;
     //save to db
     //send request back to client
-    res.json({
-        fullName,
-        message,
-    });
+    // res.json({
+    //     fullName,
+    //     message,
+    // });
+    savedData.fullName = fullName;
+    savedData.message = message;
+    res.json(savedData);
 });
