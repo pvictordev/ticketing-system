@@ -13,7 +13,7 @@ const Ticket = () => {
     const newData = { ...formData };
     newData[event.target.name] = event.target.value;
     setFormData(newData);
-    console.log(newData)
+    // console.log(newData)
   }
   function submit(event) {
     event.preventDefault();
@@ -24,7 +24,7 @@ const Ticket = () => {
     .then(res => {
       console.log(res.data)
     }).catch(error => {
-      console.error(error); // Обработка ошибки
+      console.error(error); 
     })
   }
 

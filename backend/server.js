@@ -1,6 +1,6 @@
 // Main entry point for the backend
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 // const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -15,9 +15,9 @@ app.listen(port, () => {
 app.use(bodyParser.json());
 
 // app.use(cors());
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//   }));
+app.use(cors({
+    origin: 'http://localhost:3000',
+  }));
 
 app.get('/api', (req, res) => {
     //const { fullName, message } = req.body;
@@ -27,6 +27,7 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api', (req, res) => {
+    console.log('Received POST request with data:', req.body);
     const { fullName, message } = req.body;
     //save to db
     //send request back to client
