@@ -6,31 +6,27 @@ import axios from 'axios';
 
 
 const Ticket = () => {
-  // const [formData, setFormData] = useState({ fullName: '', message: '' });
-  const[fullName,setFullName]=useState('');
-  const[message,setMessage]=useState('');
+  const url = 'http://localhost:5000/api';
+  const [formData, setFormData] = useState({ fullName: '', message: '' });
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(fullName);
-  //   console.log(message);
-  //   axios.post('http://localhost:3001/api/ticket', {
-  //     fullName: fullName,
-  //     message: message
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(fullName +' '+ message);
+  function handle(event) {
+    const newData = { ...formData };
+    newData[event.target.name] = event.target.value;
+    setFormData(newData);
+    console.log(newData)
   }
-
+  function submit(event) {
+    event.preventDefault();
+    axios.post(url, {
+      fullName: formData.fullName,
+      message: formData.message,
+    })
+    .then(res => {
+      console.log(res.data)
+    }).catch(error => {
+      console.error(error); // Обработка ошибки
+    })
+  }
 
     return (
         <>
@@ -40,20 +36,21 @@ const Ticket = () => {
         <div className="login-box">
    
           <h2>Type your ticket</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={submit}>
               <div className="user-box">
                 <input type="text" required=""
                 name='fullName'
-                value={fullName}
-                onChange={(e)=>setFullName(e.target.value)}
+                value={formData.fullName}
+                onChange={(e) => handle(e)}
                 />
                 <label>Full name</label>
               </div>
               <div className="user-box">
                 <input type="text" required=""
                   name='message'
-                  value={message}
-                  onChange={(e)=>setMessage(e.target.value)}
+                  value={formData.message}
+                  onChange={(e) => handle(e)}
+
                 />
            
                 <label>Message</label>
