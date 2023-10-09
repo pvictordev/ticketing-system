@@ -227,6 +227,9 @@ html {
 
   button:hover {
     background: #03e9f4;
+    color: white;
+  }
+  button:active {
     color: #fff;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,

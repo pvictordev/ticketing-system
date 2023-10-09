@@ -32,7 +32,7 @@ const savedData = {
   };
 
 app.post('/api', (req, res) => {
-    console.log('Received POST request with data:', req.body);
+    console.log('Received POST request with data--', req.body);
     const { fullName, message } = req.body;
     //save to db
     //send request back to client
