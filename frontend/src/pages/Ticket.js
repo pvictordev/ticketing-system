@@ -29,49 +29,45 @@ const Ticket = () => {
   }
 
     return (
-        <>
-        <div className='user'>
-            <Link className='user-link' to="/admin">Admin</Link>
-        </div>
-        <div className="login-box">
-   
-          <h2>Type your ticket</h2>
-            <form onSubmit={submit}>
-              <div className="user-box">
+      <div className='ticket'>
+        <div className='Link'><Link className='Link__text' to="/admin">Admin</Link></div>
+        <div className='ticket__content'>
+          <form className='form' onSubmit={submit}>
+
+            <div className="form__content">
+              <h1>Ticket</h1>
+              <div className="form__box">
+                <label>Full name</label>
                 <input type="text" required=""
                 name='fullName'
                 value={formData.fullName}
                 onChange={(e) => handle(e)}
                 />
-                <label>Full name</label>
+              
               </div>
-              <div className="user-box">
+
+              <div className="form__box">
+                <label>Message</label>
                 <input type="text" required=""
                   name='message'
                   value={formData.message}
                   onChange={(e) => handle(e)}
-
                 />
-           
-                <label>Message</label>
               </div>
-              {/* {nameError && <div className="error">{nameError}</div>} */}
+
               <div className='result-box'>
                 <button type='submit'>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  send
+                  Send
                 </button>
                 <div className='check-icons'>
-                  <IoCheckmarkDoneCircle className='check-icon_accepted'/>
-                  {/* <AiFillCloseCircle className='check-icon_rejected'/> */}
+                  <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/>
+                  {/* <AiFillCloseCircle className='check-icon check-icon__rejected'/> */}
                 </div>
               </div>
-            </form>
+            </div>
+          </form>
         </div>
-        </>
+      </div>
     )
 }
 export default Ticket

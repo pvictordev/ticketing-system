@@ -10,7 +10,7 @@ function App() {
   useEffect(()=>{
     fetch("/api")
     .then((res)=>res.json())
-    .then((data)=>setData(data.message))
+    .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
   },[])
 
   //   useEffect(()=>{
@@ -25,7 +25,7 @@ function App() {
         <p>
           {data ? data : "Loading..."}
         </p>
-        
+
         <Routes>
           <Route path="/" element={<Ticket />} />
           <Route path="admin" element={<Admin />} />
