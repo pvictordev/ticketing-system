@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import {IoCheckmarkDoneCircle} from 'react-icons/io5';
-import {AiFillCloseCircle} from 'react-icons/ai';
+import {BiMessage} from 'react-icons/bi';
+import {AiOutlineLoading3Quarters} from 'react-icons/ai';
+import {FcProcess} from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -28,6 +30,14 @@ const Ticket = () => {
     })
   }
 
+  function validation() {
+    if (formData.fullName.length > 0 && formData.message.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
     return (
       <div className='ticket'>
         <div className='Link'><Link className='Link__text' to="/admin">Admin</Link></div>
@@ -43,9 +53,9 @@ const Ticket = () => {
                 value={formData.fullName}
                 onChange={(e) => handle(e)}
                 />
-              
-              </div>
 
+              </div>
+             
               <div className="form__box">
                 <label>Message</label>
                 <input type="text" required=""
@@ -60,7 +70,9 @@ const Ticket = () => {
                   Send
                 </button>
                 <div className='check-icons'>
-                  <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/>
+                  <BiMessage className='check-icon check-icon__sent'/>
+                  {/* <AiOutlineLoading3Quarters className='check-icon check-icon__pending'/> */}
+                  {/* <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/> */}
                   {/* <AiFillCloseCircle className='check-icon check-icon__rejected'/> */}
                 </div>
               </div>

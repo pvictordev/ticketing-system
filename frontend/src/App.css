@@ -67,6 +67,9 @@ body {
   border-radius: 1rem;
   font-size: 1rem;
 }
+input:focus {
+  border: 2px solid #4663AC;
+}
 
 .result-box {
   display: flex;
@@ -83,6 +86,15 @@ body {
   border: 2px solid whitesmoke;
   color: whitesmoke;
 }
+button:hover {
+  /* background-color: #4663AC; */
+  border:2px solid #4663AC;
+}
+button:active {
+  background-color: #4663AC;
+  border:2px solid #4663AC;
+}
+
 .result-box-admin {
   display: flex;
   justify-content: center;
@@ -96,13 +108,18 @@ body {
 .check-icon  {
   font-size:2rem;
 }
+.check-icon__pending {
+  color :rgb(255, 255, 0);
+}
 .check-icon__accepted {
   color :rgb(0, 255, 0);
 }
 .check-icon__rejected {
   color :rgb(255, 0, 0);
 }
+.check-icon__sent {
+  color: #4663AC;
+}
 .center {
   justify-content: center;
-
 }

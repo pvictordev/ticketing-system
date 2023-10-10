@@ -31,7 +31,7 @@ const Admin = () => {
 
               <div className='result-box center '>
                 <button type='submit'>
-                  Send
+                  Login
                 </button>
               </div>
             </div>
