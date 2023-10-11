@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {IoCheckmarkDoneCircle} from 'react-icons/io5';
-import {BiMessage} from 'react-icons/bi';
+import {MdOutlineSmsFailed, MdOutlineTextsms} from 'react-icons/md';
+
 import {AiOutlineLoading3Quarters} from 'react-icons/ai';
 import {FcProcess} from 'react-icons/fc';
 import { Link } from "react-router-dom";
@@ -11,30 +12,41 @@ const Ticket = () => {
   const url = 'http://localhost:5000/api';
   const [formData, setFormData] = useState({ fullName: '', message: '' });
 
+  const [canSubmit, setCanSubmit] = useState(false);
+
   function handle(event) {
     const newData = { ...formData };
     newData[event.target.name] = event.target.value;
     setFormData(newData);
+    validateForm(newData);
     // console.log(newData)
   }
-  function submit(event) {
-    event.preventDefault();
-    axios.post(url, {
-      fullName: formData.fullName,
-      message: formData.message,
-    })
-    .then(res => {
-      console.log(res.data)
-    }).catch(error => {
-      console.error(error); 
-    })
+
+  function validateForm(data) {
+    const { fullName, message } = data;
+    setCanSubmit(fullName !== '' && message !== '');
   }
 
-  function validation() {
-    if (formData.fullName.length > 0 && formData.message.length > 0) {
-      return true;
-    } else {
-      return false;
+  function submit(event) {
+    event.preventDefault();
+
+    if (canSubmit) {
+      axios.post(url, {
+        fullName: formData.fullName,
+        message: formData.message,
+      })
+      .then(res => {
+        console.log(res.data)
+      }).catch(error => {
+        console.error(error); 
+      });
+    } 
+    else {
+      if (formData.fullName === '' && formData.message === '') {
+        alert('Form is empty');
+      } else {
+        alert('Sent');
+      }
     }
   }
 
@@ -66,11 +78,17 @@ const Ticket = () => {
               </div>
 
               <div className='result-box'>
-                <button type='submit'>
+                <button type='submit' disabled={!canSubmit}>
                   Send
                 </button>
                 <div className='check-icons'>
-                  <BiMessage className='check-icon check-icon__sent'/>
+                  {/* <MdOutlineTextsms className='check-icon check-icon__sent'/> */}
+                  {canSubmit ? (
+                    <MdOutlineTextsms className='check-icon check-icon__sent' />
+                  ) : (
+                    <MdOutlineSmsFailed className='check-icon check-icon__error' />
+                  )}
+
                   {/* <AiOutlineLoading3Quarters className='check-icon check-icon__pending'/> */}
                   {/* <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/> */}
                   {/* <AiFillCloseCircle className='check-icon check-icon__rejected'/> */}

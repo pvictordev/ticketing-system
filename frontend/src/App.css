@@ -117,6 +117,9 @@ button:active {
 .check-icon__rejected {
   color :rgb(255, 0, 0);
 }
+.check-icon__error {
+  color :rgb(255, 0, 0);
+}
 .check-icon__sent {
   color: #4663AC;
 }
