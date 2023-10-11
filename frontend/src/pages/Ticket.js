@@ -19,7 +19,6 @@ const Ticket = () => {
     newData[event.target.name] = event.target.value;
     setFormData(newData);
     validateForm(newData);
-    // console.log(newData)
   }
 
   function validateForm(data) {
@@ -28,9 +27,11 @@ const Ticket = () => {
   }
 
   function submit(event) {
+
     event.preventDefault();
 
     if (canSubmit) {
+      alert('Sent');
       axios.post(url, {
         fullName: formData.fullName,
         message: formData.message,
@@ -38,16 +39,10 @@ const Ticket = () => {
       .then(res => {
         console.log(res.data)
       }).catch(error => {
-        console.error(error); 
+        console.error(error)
       });
-    } 
-    else {
-      if (formData.fullName === '' && formData.message === '') {
-        alert('Form is empty');
-      } else {
-        alert('Sent');
-      }
     }
+   
   }
 
     return (
@@ -78,7 +73,7 @@ const Ticket = () => {
               </div>
 
               <div className='result-box'>
-                <button type='submit' disabled={!canSubmit}>
+                <button onClick={submit} type='submit' disabled={!canSubmit}>
                   Send
                 </button>
                 <div className='check-icons'>

@@ -2,8 +2,16 @@ import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 
 const Admin = () => {
-    const [Name, setName] = useState('');
+    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleLoginChange = (event) => {
+      setLogin(event.target.value);
+    };
+    const handlePasswordChange = (event) => {
+      setPassword(event.target.value);
+    };
+
     return (
       <div className='admin'>
         <div className='Link'><Link className='Link__text' to="/">Ticket</Link></div>
@@ -16,7 +24,8 @@ const Admin = () => {
                 <label>Login</label>
                 <input type="text" required=""
                 name='Login'
-                
+                value={login}
+                onChange={handleLoginChange}
                 />
               
               </div>
@@ -25,7 +34,8 @@ const Admin = () => {
                 <label>Password</label>
                 <input type="password" required=""
                   name='Password'
-              
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
               </div>
 
