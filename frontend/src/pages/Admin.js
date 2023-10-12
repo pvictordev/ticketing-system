@@ -14,11 +14,11 @@ const Admin = () => {
 
     const handleLoginChange = (event) => {
       setLogin(event.target.value);
-      setValid(login === "admin" && password === "admin");
+      setValid(login === "admin" && password === 'admin');
     };
     const handlePasswordChange = (event) => {
       setPassword(event.target.value);
-      setValid(login === "admin" && password === "admin");
+      setValid(login === "admin" && password === 'admin');
     };
 
     

@@ -1,16 +1,15 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {IoCheckmarkDoneCircle} from 'react-icons/io5';
 import {MdOutlineSmsFailed, MdOutlineTextsms} from 'react-icons/md';
 
-import {AiOutlineLoading3Quarters} from 'react-icons/ai';
-import {FcProcess} from 'react-icons/fc';
+import {RiRadioButtonLine} from 'react-icons/ri';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-
 const Ticket = () => {
+  
   const url = 'http://localhost:5000/api';
-  const [formData, setFormData] = useState({ fullName: '', message: '', });
+  const [formData, setFormData] = useState({ fullName: '', message: '',status:false });
 
   const [canSubmit, setCanSubmit] = useState(false);
 
@@ -35,7 +34,7 @@ const Ticket = () => {
       axios.post(url, {
         fullName: formData.fullName,
         message: formData.message,
-        status: formData.status,
+        status:formData.status,
       })
       .then(res => {
         console.log(res.data)
@@ -45,6 +44,7 @@ const Ticket = () => {
     }
    
   }
+  console.log(formData.status)  
 
     return (
       <div className='ticket'>
@@ -53,6 +53,9 @@ const Ticket = () => {
           <form className='form' onSubmit={submit}>
 
             <div className="form__content">
+
+              { !formData.status ? <RiRadioButtonLine className='checked__status red'/>: <RiRadioButtonLine className='checked__status green'/>}
+
               <h1>Ticket</h1>
               <div className="form__box">
                 <label>Full name</label>

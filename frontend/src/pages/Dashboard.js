@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
 
@@ -10,13 +11,32 @@ export default function Dashboard() {
     .then((data)=>setData(data))
   },[])
 
-  const dataMap = data.map((item)=>(
-    <tr>
+  const [isChecked, setIsChecked] = useState([]);
+
+  const handleChange = (event, index) => {
+    const newData = [...data];
+    newData[index].status = event.target.checked;
+    setData(newData);
+    setIsChecked((prevState) => {
+      const newState = [...prevState];
+      newState[index] = event.target.checked;
+      return newState;
+    });
+  };
+
+  const dataMap = data.map((item, index)=>(
+    <tr key={item.message}>
       <td>{item.fullName}</td>
       <td>{item.message}</td>
-      <td><input type='radio'/></td>
+      <td>
+        <input type='checkbox' 
+          value={isChecked[index] || false} 
+          onChange={(event) => handleChange(event, index)}
+        />
+      </td>
     </tr>
   ))
+  console.log(data)
 
   return (
     <div className='dashboard'>
@@ -25,15 +45,19 @@ export default function Dashboard() {
           <h1>Dashboard</h1>
           <div className='content__table'>
             <table>
+              <tbody>
               <tr>
                   <th>Full Name</th>
                   <th>Message</th>
                   <th>Status</th>
               </tr>
                 {dataMap}
+              </tbody>
             </table>
           </div>
         </div>
+
+        
       </div>
     </div>
   )

@@ -15,17 +15,15 @@ app.use(bodyParser.json());
 
 app.use(cors({
     origin: 'http://localhost:3000',
-  }));
+}));
 
+const savedData = [];
 app.get('/api', (req, res) => {
     res.json(savedData);
 });
-
-
-const savedData = [];
 app.post('/api', (req, res) => {
     console.log('Received POST request with data--', req.body);
-    const { fullName, message } = req.body;
+    const { fullName, message, status } = req.body;
     //save to db
     //send request back to client
     // res.json({
@@ -36,10 +34,12 @@ app.post('/api', (req, res) => {
     const newData = {
       fullName,
       message,
+      status,
     }
 
     savedData.push(newData);
     res.json(savedData)
 });
+console.log(savedData)
 
 
