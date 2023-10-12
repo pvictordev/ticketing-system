@@ -73,7 +73,7 @@ const Ticket = () => {
               </div>
 
               <div className='result-box'>
-                <button onClick={submit} type='submit' disabled={!canSubmit}>
+                <button type='submit' disabled={!canSubmit}>
                   Send
                 </button>
                 <div className='check-icons'>

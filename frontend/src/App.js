@@ -13,13 +13,7 @@ function App() {
     .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
   },[])
 
-  //   useEffect(()=>{
-  //   fetch("/api")
-  //   .then((res)=>res.json())
-  //   .then((data)=>setData(data.map((item)=>{return item.fullName + " " + item.message })))
-  // },[])
   
-
   return (
     <div className="App">
         <p>

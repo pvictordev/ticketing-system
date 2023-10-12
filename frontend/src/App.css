@@ -126,3 +126,6 @@ button:active {
 .center {
   justify-content: center;
 }
+.green {
+  color :rgb(0, 255, 0);
+}
