@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const Ticket = () => {
-  
+
   const url = 'http://localhost:5000/api';
   const [formData, setFormData] = useState({ fullName: '', message: '',status:false });
 
@@ -31,6 +31,7 @@ const Ticket = () => {
 
     if (canSubmit) {
       alert('Sent');
+        
       axios.post(url, {
         fullName: formData.fullName,
         message: formData.message,

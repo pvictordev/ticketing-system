@@ -14,6 +14,7 @@ function App() {
   //   .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
   // },[])
 
+
   
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
         </p> */}
         
         <Routes>
-          <Route path="/" element={<Ticket />} />
+          <Route path="/"  element={<Ticket />} />
 
           <Route path="admin" element={<Admin />} />
           <Route path="/dashboard" element={<Dashboard/>} />

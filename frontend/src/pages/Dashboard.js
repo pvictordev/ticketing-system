@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-
+  
   const [data, setData] = useState([]);
 
   useEffect(()=>{
@@ -10,6 +10,7 @@ export default function Dashboard() {
     .then((res)=>res.json())
     .then((data)=>setData(data))
   },[])
+
 
   const [isChecked, setIsChecked] = useState([]);
 
