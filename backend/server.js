@@ -4,7 +4,6 @@ const cors = require('cors');
 // const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -14,7 +13,6 @@ app.listen(port, () => {
 
 app.use(bodyParser.json());
 
-// app.use(cors());
 app.use(cors({
     origin: 'http://localhost:3000',
   }));
@@ -22,12 +20,9 @@ app.use(cors({
 app.get('/api', (req, res) => {
     res.json(savedData);
 });
-// const savedData = {
-//     fullName: '',
-//     message: '',
-// };
-const savedData = [];
 
+
+const savedData = [];
 app.post('/api', (req, res) => {
     console.log('Received POST request with data--', req.body);
     const { fullName, message } = req.body;
@@ -38,18 +33,12 @@ app.post('/api', (req, res) => {
     //     message,
     // });
 
-
-    // savedData.fullName = fullName;
-    // savedData.message = message;
-    // res.json(savedData);
-
     const newData = {
       fullName,
       message,
     }
 
     savedData.push(newData);
-
     res.json(savedData)
 });
 

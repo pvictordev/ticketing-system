@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const Ticket = () => {
   const url = 'http://localhost:5000/api';
-  const [formData, setFormData] = useState({ fullName: '', message: '' });
+  const [formData, setFormData] = useState({ fullName: '', message: '', });
 
   const [canSubmit, setCanSubmit] = useState(false);
 
@@ -35,6 +35,7 @@ const Ticket = () => {
       axios.post(url, {
         fullName: formData.fullName,
         message: formData.message,
+        status: formData.status,
       })
       .then(res => {
         console.log(res.data)

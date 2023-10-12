@@ -6,13 +6,13 @@ import Admin from './pages/Admin';
 import Dashboard from './pages/Dashboard';
 
 function App() {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  useEffect(()=>{
-    fetch("/api")
-    .then((res)=>res.json())
-    .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
-  },[])
+  // useEffect(()=>{
+  //   fetch("/api")
+  //   .then((res)=>res.json())
+  //   .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
+  // },[])
 
   
   return (

@@ -1,11 +1,7 @@
 import React,{useState} from 'react';
-import { Link } from "react-router-dom";
 import {MdOutlineSmsFailed, MdOutlineTextsms} from 'react-icons/md';
 import Dashboard from './Dashboard';
-import { Router, Route, Switch, Routes } from "react-router-dom";
-// import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
-// import Form from '../components/Form';
-//import { useNavigate } from "react-router-dom";
+import { Link, Router, Route, Switch, Routes, useNavigate } from "react-router-dom";
 
 
 const Admin = () => {
@@ -13,24 +9,29 @@ const Admin = () => {
     const [password, setPassword] = useState('');
 
     const [valid, setValid] = useState(false);
-
-    //const history = useNavigate(); 
+    
+    const navigate = useNavigate();
 
     const handleLoginChange = (event) => {
       setLogin(event.target.value);
-      setValid(login !== '' && password !== '');
+      setValid(login === "admin" && password === "admin");
     };
     const handlePasswordChange = (event) => {
       setPassword(event.target.value);
-      setValid(login !== '' && password !== '');
+      setValid(login === "admin" && password === "admin");
     };
 
-    // const handleValidation = () => {
-    //   if (login && password) {
-    //     history.push("/admin/dashboard"); // Перейти на страницу "dashboard" после успешной валидации
-    //   }
-    // };
     
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (valid) {
+      // Redirect to the Dashboard page if login is successful
+      navigate('/dashboard');
+    }
+  };
+
+
     return (
       <div className="admin">
       <div className="Link">
@@ -40,7 +41,7 @@ const Admin = () => {
       </div>
 
       <div className="admin__content"> 
-        <form className='form'>
+        <form className='form' onSubmit={handleSubmit}>
           <div className="form__content">
               <h1>Admin</h1>
               <div className="form__box">
@@ -64,7 +65,7 @@ const Admin = () => {
 
               <div className='result-box'>
                   <button 
-                  // onClick={handleValidation}  
+                 
                   type='submit' disabled={!valid}>
                   Send
                   </button>

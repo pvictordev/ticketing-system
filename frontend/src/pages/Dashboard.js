@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
-
 export default function Dashboard() {
 
   const [data, setData] = useState([]);
-  
+
   useEffect(()=>{
     fetch("/api")
     .then((res)=>res.json())
@@ -31,9 +30,6 @@ export default function Dashboard() {
                   <th>Message</th>
                   <th>Status</th>
               </tr>
-                {/* <td>{data ? data.fullName: 'loading...'}</td>
-                <td>{data? data.message: 'loading'}</td>
-                <td><input type='radio'/></td> */}
                 {dataMap}
             </table>
           </div>
