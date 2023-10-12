@@ -4,13 +4,17 @@ import {MdOutlineSmsFailed, MdOutlineTextsms} from 'react-icons/md';
 import Dashboard from './Dashboard';
 import { Router, Route, Switch, Routes } from "react-router-dom";
 // import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
-import Form from '../components/Form';
+// import Form from '../components/Form';
+//import { useNavigate } from "react-router-dom";
+
 
 const Admin = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
     const [valid, setValid] = useState(false);
+
+    //const history = useNavigate(); 
 
     const handleLoginChange = (event) => {
       setLogin(event.target.value);
@@ -20,6 +24,12 @@ const Admin = () => {
       setPassword(event.target.value);
       setValid(login !== '' && password !== '');
     };
+
+    // const handleValidation = () => {
+    //   if (login && password) {
+    //     history.push("/admin/dashboard"); // Перейти на страницу "dashboard" после успешной валидации
+    //   }
+    // };
     
     return (
       <div className="admin">
@@ -28,6 +38,7 @@ const Admin = () => {
           Ticket
         </Link>
       </div>
+
       <div className="admin__content"> 
         <form className='form'>
           <div className="form__content">
@@ -52,7 +63,9 @@ const Admin = () => {
               </div>
 
               <div className='result-box'>
-                  <button type='submit' disabled={!valid}>
+                  <button 
+                  // onClick={handleValidation}  
+                  type='submit' disabled={!valid}>
                   Send
                   </button>
                   <div className='check-icons'>
@@ -64,8 +77,9 @@ const Admin = () => {
                   </div>
               </div>
           </div>
-        </form>
+        </form>          
       </div>
+
     </div>
     )
 }

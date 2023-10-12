@@ -20,16 +20,13 @@ app.use(cors({
   }));
 
 app.get('/api', (req, res) => {
-    //const { fullName, message } = req.body;
-    // res.json({
-    //     message: 'Hello world from backend',   
-    // })
     res.json(savedData);
 });
-const savedData = {
-    fullName: '',
-    message: '',
-  };
+// const savedData = {
+//     fullName: '',
+//     message: '',
+// };
+const savedData = [];
 
 app.post('/api', (req, res) => {
     console.log('Received POST request with data--', req.body);
@@ -40,9 +37,20 @@ app.post('/api', (req, res) => {
     //     fullName,
     //     message,
     // });
-    savedData.fullName = fullName;
-    savedData.message = message;
-    res.json(savedData);
+
+
+    // savedData.fullName = fullName;
+    // savedData.message = message;
+    // res.json(savedData);
+
+    const newData = {
+      fullName,
+      message,
+    }
+
+    savedData.push(newData);
+
+    res.json(savedData)
 });
 
 

@@ -129,3 +129,47 @@ button:active {
 .green {
   color :rgb(0, 255, 0);
 }
+
+.dashboard__container {
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.content__table {
+  
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    align-self: center;
+    border: 2px solid whitesmoke;
+}
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    background-color: whitesmoke;
+    color: #0E1111;
+  }
+  td {
+    background-color: transparent;
+    color: whitesmoke;
+  }
+  /* tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  } */
+
+  td {
+    border-bottom: 1px solid #ddd;
+  }
