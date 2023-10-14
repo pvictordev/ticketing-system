@@ -1,15 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 
 export default function Dashboard() {
-  
   const [data, setData] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch("/api")
-    .then((res)=>res.json())
-    .then((data)=>setData(data))
-  },[])
-
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
 
   const [isChecked, setIsChecked] = useState([]);
 
@@ -24,33 +22,34 @@ export default function Dashboard() {
     });
   };
 
-  const dataMap = data.map((item, index)=>(
+  const dataMap = data.map((item, index) => (
     <tr key={item.message}>
       <td>{item.fullName}</td>
       <td>{item.message}</td>
       <td>
-        <input type='checkbox' 
-          value={isChecked[index] || false} 
+        <input
+          type="checkbox"
+          value={isChecked[index] || false}
           onChange={(event) => handleChange(event, index)}
         />
       </td>
     </tr>
-  ))
-  console.log(data)
+  ));
+  console.log(data);
 
   return (
-    <div className='dashboard'>
-      <div className='dashboard__container'>
-        <div className='dashboard__content'>
+    <div className="dashboard">
+      <div className="dashboard__container">
+        <div className="dashboard__content">
           <h1>Dashboard</h1>
-          <div className='content__table'>
+          <div className="content__table">
             <table>
               <tbody>
-              <tr>
+                <tr>
                   <th>Full Name</th>
                   <th>Message</th>
                   <th>Status</th>
-              </tr>
+                </tr>
                 {dataMap}
               </tbody>
             </table>
@@ -58,5 +57,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }

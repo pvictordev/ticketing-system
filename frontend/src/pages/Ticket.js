@@ -1,15 +1,18 @@
-import React,{useState, useEffect} from 'react';
-import {IoCheckmarkDoneCircle} from 'react-icons/io5';
-import {MdOutlineSmsFailed, MdOutlineTextsms} from 'react-icons/md';
+import React, { useState, useEffect } from "react";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import { MdOutlineSmsFailed, MdOutlineTextsms } from "react-icons/md";
 
-import {RiRadioButtonLine} from 'react-icons/ri';
+import { RiRadioButtonLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const Ticket = () => {
-
-  const url = 'http://localhost:5000/api';
-  const [formData, setFormData] = useState({ fullName: '', message: '',status:false });
+  const url = "http://localhost:5000/api";
+  const [formData, setFormData] = useState({
+    fullName: "",
+    message: "",
+    status: false,
+  });
 
   const [canSubmit, setCanSubmit] = useState(false);
 
@@ -22,82 +25,91 @@ const Ticket = () => {
 
   function validateForm(data) {
     const { fullName, message } = data;
-    setCanSubmit(fullName !== '' && message !== '');
+    setCanSubmit(fullName !== "" && message !== "");
   }
 
   function submit(event) {
-
     event.preventDefault();
 
     if (canSubmit) {
-      alert('Sent');
-        
-      axios.post(url, {
-        fullName: formData.fullName,
-        message: formData.message,
-        status:formData.status,
-      })
-      .then(res => {
-        console.log(res.data)
-      }).catch(error => {
-        console.error(error)
-      });
+      alert("Sent");
+
+      axios
+        .post(url, {
+          fullName: formData.fullName,
+          message: formData.message,
+          status: formData.status,
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-   
   }
-  console.log(formData.status)  
+  console.log(formData.status);
 
-    return (
-      <div className='ticket'>
-        <div className='Link'><Link className='Link__text' to="/admin">Admin</Link></div>
-        <div className='ticket__content'>
-          <form className='form' onSubmit={submit}>
+  return (
+    <div className="ticket">
+      <div className="Link">
+        <Link className="Link__text" to="/admin">
+          Admin
+        </Link>
+      </div>
+      <div className="ticket__content">
+        <form className="form" onSubmit={submit}>
+          <div className="form__content">
+            {!formData.status ? (
+              <RiRadioButtonLine className="checked__status red" />
+            ) : (
+              <RiRadioButtonLine className="checked__status green" />
+            )}
 
-            <div className="form__content">
-
-              { !formData.status ? <RiRadioButtonLine className='checked__status red'/>: <RiRadioButtonLine className='checked__status green'/>}
-
-              <h1>Ticket</h1>
-              <div className="form__box">
-                <label>Full name</label>
-                <input type="text" required=""
-                name='fullName'
+            <h1>Ticket</h1>
+            <div className="form__box">
+              <label>Full name</label>
+              <input
+                type="text"
+                required=""
+                name="fullName"
                 value={formData.fullName}
                 onChange={(e) => handle(e)}
-                />
+              />
+            </div>
 
-              </div>
-             
-              <div className="form__box">
-                <label>Message</label>
-                <input type="text" required=""
-                  name='message'
-                  value={formData.message}
-                  onChange={(e) => handle(e)}
-                />
-              </div>
+            <div className="form__box">
+              <label>Message</label>
+              <input
+                type="text"
+                required=""
+                name="message"
+                value={formData.message}
+                onChange={(e) => handle(e)}
+              />
+            </div>
 
-              <div className='result-box'>
-                <button type='submit' disabled={!canSubmit}>
-                  Send
-                </button>
-                <div className='check-icons'>
-                  {/* <MdOutlineTextsms className='check-icon check-icon__sent'/> */}
-                  {canSubmit ? (
-                    <MdOutlineTextsms className='check-icon check-icon__sent' />
-                  ) : (
-                    <MdOutlineSmsFailed className='check-icon check-icon__error' />
-                  )}
+            <div className="result-box">
+              <button type="submit" disabled={!canSubmit}>
+                Send
+              </button>
+              <div className="check-icons">
+                {/* <MdOutlineTextsms className='check-icon check-icon__sent'/> */}
+                {canSubmit ? (
+                  <MdOutlineTextsms className="check-icon check-icon__sent" />
+                ) : (
+                  <MdOutlineSmsFailed className="check-icon check-icon__error" />
+                )}
 
-                  {/* <AiOutlineLoading3Quarters className='check-icon check-icon__pending'/> */}
-                  {/* <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/> */}
-                  {/* <AiFillCloseCircle className='check-icon check-icon__rejected'/> */}
-                </div>
+                {/* <AiOutlineLoading3Quarters className='check-icon check-icon__pending'/> */}
+                {/* <IoCheckmarkDoneCircle className='check-icon check-icon__accepted'/> */}
+                {/* <AiFillCloseCircle className='check-icon check-icon__rejected'/> */}
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    )
-}
-export default Ticket
+    </div>
+  );
+};
+export default Ticket;
