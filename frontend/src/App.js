@@ -23,8 +23,8 @@ function App() {
         </p> */}
         
         <Routes>
-          <Route path="/"  element={<Ticket />} />
-
+          <Route path="/" element={<Ticket />} />
+          
           <Route path="admin" element={<Admin />} />
           <Route path="/dashboard" element={<Dashboard/>} />
 
