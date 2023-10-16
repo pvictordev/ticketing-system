@@ -6,8 +6,6 @@ import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
-  //const [data, setData] = useState([]);
-  
   return (
     <div className="App">
       <Routes>

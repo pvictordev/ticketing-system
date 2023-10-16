@@ -32,7 +32,6 @@ const Ticket = () => {
 
     if (canSubmit) {
       alert("Sent");
-
       axios
         .post(url, {
           fullName: formData.fullName,
@@ -45,6 +44,7 @@ const Ticket = () => {
         .catch((error) => {
           console.error(error);
         });
+
     }
   }
   //console.log(formData.status);

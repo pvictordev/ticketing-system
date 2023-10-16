@@ -23,9 +23,12 @@ const savedData = [];
 app.get("/api", (req, res) => {
   res.json(savedData);
 });
+
+let idCount = 0;
 app.post("/api", (req, res) => {
   console.log("Received POST request with data--", req.body);
   const { fullName, message, status } = req.body;
+  idCount++;
   //save to db
   //send request back to client
   // res.json({
@@ -34,6 +37,7 @@ app.post("/api", (req, res) => {
   // });
 
   const newData = {
+    id: idCount,
     fullName,
     message,
     status,
@@ -43,4 +47,10 @@ app.post("/api", (req, res) => {
   res.json(savedData);
 });
 console.log(savedData);
+
+// app.put("/api/update", (req, res) => {
+//   const { id, status } = req.body;
+
+//   res.json({ message: "Данные успешно обновлены" });
+// });
 
