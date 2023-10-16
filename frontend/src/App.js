@@ -6,19 +6,9 @@ import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
-  // const [data, setData] = useState(null);
-
-  // useEffect(()=>{
-  //   fetch("/api")
-  //   .then((res)=>res.json())
-  //   .then((data)=>setData(`Full name == ${data.fullName} Message == ${data.message} `))
-  // },[])
+  
   return (
     <div className="App">
-      {/* <p>
-          {data ? data : "Loading..."}
-        </p> */}
-
       <Routes>
         <Route path="/" element={<Ticket />} />
 
