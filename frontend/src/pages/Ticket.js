@@ -13,7 +13,6 @@ const Ticket = () => {
     message: "",
     status: false,
   });
-
   const [canSubmit, setCanSubmit] = useState(false);
 
   function handle(event) {
@@ -48,7 +47,7 @@ const Ticket = () => {
         });
     }
   }
-  console.log(formData.status);
+  //console.log(formData.status);
 
   return (
     <div className="ticket">

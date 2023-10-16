@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
+  const [isChecked, setIsChecked] = useState([]);
 
   useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-
-  const [isChecked, setIsChecked] = useState([]);
 
   const handleChange = (event, index) => {
     const newData = [...data];
