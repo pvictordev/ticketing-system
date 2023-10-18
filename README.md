@@ -9,19 +9,28 @@
 - [Git](https://git-scm.com/) установлен на вашем компьютере
 ### Клонирование репозитория
 
-**1. Склонируйте репозиторий с GitHub:**
-   ```bash
+### Склонируйте репозиторий с GitHub:
    git clone https://github.com/ваш_логин/название_репозитория.git
 
-**2. Настройка backend**
-   cd backend
-   npm install
-4. Настройка backend
-   cd../frontend
-   npm install
-6. Запуститие приложение
-7. npm start
+1. **Настройка backend**
+   Перейдите в папку backend:
+     ```bash
+     cd backend
+     npm install
+     npm start
 
+2. **Настройка frontend**
+   - Перейдите в папку frontend:
+     ```bash
+     cd frontend
+     npm install
+     npm start
+
+3. **Запуск приложения**
+   - Запустите приложение:
+     ```bash
+     npm start
+     ```
 
    
 
