@@ -9,10 +9,11 @@
 - [Git](https://git-scm.com/) установлен на вашем компьютере
 ### Клонирование репозитория
 
-1. Склонируйте репозиторий с GitHub:
+**1. Склонируйте репозиторий с GitHub:**
    ```bash
    git clone https://github.com/ваш_логин/название_репозитория.git
-2. Настройка backend
+
+**2. Настройка backend**
    cd backend
    npm install
 4. Настройка backend
