@@ -13,13 +13,13 @@
    ```bash
    git clone https://github.com/ваш_логин/название_репозитория.git
 2. Настройка backend
-   ```cd backend
-   ```npm install
-3. Настройка backend
-   ```cd../frontend
-   ```npm install
-4. Запуститие приложение
-   ```npm start
+   cd backend
+   npm install
+4. Настройка backend
+   cd../frontend
+   npm install
+6. Запуститие приложение
+7. npm start
 
 
    
