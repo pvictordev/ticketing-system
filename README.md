@@ -1,42 +1,41 @@
 # ticketing-system
 
-Система для отслеживания заявок
+A system for tracking tickets
 
-## Развёртывание
+## Deployment
 
-Следуйте этим инструкциям, чтобы развернуть проект на своем локальном компьютере.
+Follow these instructions to deploy the project on your local computer.
 
-## Требования
+## Requirements
 
-- [Node.js](https://nodejs.org/en/) установлен на вашем компьютере
-- [Git](https://git-scm.com/) установлен на вашем компьютере
+- [Node.js](https://nodejs.org/en/) installed on your computer
+- [Git](https://git-scm.com/) installed on your computer
 
-## Клонирование репозитория
+### Clone the repository
 
-### Склонируйте репозиторий с GitHub:
+### Clone the repository from GitHub:
 ```bash
-git clone https://github.com/ваш_логин/название_репозитория.git
+git clone https://github.com/ваш_логин/repository_name.git
 ```
 
-1. **Настройка backend**
-- Перейдите в папку backend:
+1. **Customize the backend**
+- Navigate to the backend folder:
 ```bash
 cd backend
 npm install
 npm start
 ```
 
-2. **Настройка frontend**
-- Перейдите в папку frontend:
+2. **Customize frontend**
+- Navigate to the frontend folder:
 ```bash
   cd frontend
   npm install
   npm start
 ```
 
-3. **Запуск приложения**
-- Запустите приложение:
+3. **Start the application**
+- Start the application:
 ```bash
   npm start
 ```
-
