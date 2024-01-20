@@ -1,4 +1,4 @@
-# ticketing-system
+# Ticketing System
 
 A system for tracking tickets
 
