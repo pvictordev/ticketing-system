@@ -6,7 +6,7 @@
 
 Follow these instructions to deploy the project on your local computer.
 
-#### Requirements
+### Requirements
 
 - [Node.js](https://nodejs.org/en/) installed on your computer
 - [Git](https://git-scm.com/) installed on your computer
