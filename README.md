@@ -15,7 +15,7 @@ Follow these instructions to deploy the project on your local computer.
 
 #### Clone the repository from GitHub:
 ```bash
-git clone https://github.com/ваш_логин/repository_name.git
+git clone https://github.com/pvictordev/ticketing-system
 ```
 
 1. **Customize the backend**
